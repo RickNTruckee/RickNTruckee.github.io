@@ -1,7 +1,155 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+<!DOCTYPE HTML>
+ <html> 
+ 	<head>
+ 		 <style type="text/css">
+ 		  .mover {
+ 		  	 width:200px; height:190px; line-height:4em; margin:10px; padding:5px; float:left; 
+ 		  	 border:1px dotted #333333; text-align:center;  
+ 		  	 } 
+ 		  	 #box0{
+ 		  	 	font-size:  24px; text-align: center; margin: 40px; color: #009900
+ 		  	 }
+ 		  	 #boxA{
+ 		  	 	background-image: url(images/coyote.jpg)
+ 		  	 }
+ 		  	 #boxB{
+ 		  	 	background-image: url(images/black_bear.jpg)
+ 		  	 }
+ 		  	 #boxC{
+ 		  	 	background-image: url(images/grass.jpg)
+ 		  	 }
+ 		  	 #boxD{
+ 		  	 	background-image: url(images/rabbits.jpg)
+ 		  	 }
+ 		  	 #boxE{
+ 		  	 	background-image: url(images/sun2.jpg) 
+ 		  	 }
+ 		  	 #btn1{
+ 		  	 	width: 225px; height: 50px; margin:10px; margin-left: 480px; font-size: 24px
+ 		  	 }
+ 		  	 #box6{
+ 		  	 	width: 1300px; height: 30px; border-style: none; margin-left: 480px margin-top 600px; float:right;
+ 		  	 } 
+ 		  	 #box7{
+ 		  	 	width: 250px; height: 300px; border-width: 10px dotted #333333; float: right;
+ 		  	 	margin-right: 150px; margin-bottom: 400px; margin-top: 1px; padding-top: 1px; visibility: hidden;
+ 		  		
+ 		  	 }
+ 		 </style>
+ 		 <script type="text/javascript">
+ 		  	   function dragWord(dragEvent){
+ 		  	  	 dragEvent.dataTransfer.setData("Id", dragEvent.target.id+"|"+dragEvent.target.parentNode.id);
+ 		  	  	 }  		  	  	 
+ 		  	   function dropWord(dropEvent){ 
+ 		  	  	 var dropData = dropEvent.dataTransfer.getData("Id");
+ 		  	  	 var dropItems = dropData.split("|"); 
+ 		  	  	 var prevElem = document.getElementById(dropItems[1]); 
+ 		  	  	 prevElem.getElementsByTagName("div")[0].id = dropEvent.target.id; 		  	  	
+ 		  	  	 dropEvent.target.id = dropItems[0]; 
+ 		  	  	 dropEvent.preventDefault(); 
+ 		  	  	 } 
+ 		  	  	function btnRestore(e) {
+    				document.getElementById("btn1").textContent = "Check Score";
+				}
+ 		  	  	</script> 
+ 		  	  	</head> 
+ 		  	  	<body> <div id="box0"><em>Drag and drop the pictures in the correct order to show how energy moves through a food chain.</em></div> 
+ 		  	  		<div id="box1" ondragover="event.preventDefault()" ondrop="dropWord(event)" > 
+ 		  	  		<div class="mover" id="boxA" draggable="true" ondragstart="dragWord(event)" ></div> 
+ 		  	  		</div>
+ 		  	  		<div id="box2" ondragover="event.preventDefault()" ondrop="dropWord(event)"> 
+ 		  	  		<div class="mover" id="boxB" draggable="true" ondragstart="dragWord(event)"></div> 
+ 		  	  		</div>
+ 		  	  		<div id="box3" ondragover="event.preventDefault()" ondrop="dropWord(event)"> 
+ 		  	  		<div class="mover" id="boxC" draggable="true" ondragstart="dragWord(event)"></div> 
+ 		  	  		</div> 
+ 		  	  		<div id="box4" ondragover="event.preventDefault()" ondrop="dropWord(event)"> 
+ 		  	  		<div class="mover" id="boxD" draggable="true" ondragstart="dragWord(event)"></div> 
+ 		  	  		</div> 
+ 		  	  		<div id="box5" ondragover="event.preventDefault()" ondrop="dropWord(event)"> 
+ 		  	  		<div class="mover" id="boxE" draggable="true" ondragstart="dragWord(event)"></div> 
+ 		  	  		</div>	
+ 		  	  		<div id="box6" onmousemove="btnRestore(event)"></div>
+ 		  	  		<p>
+ 		  	  			
+ 		  	  		<button id="btn1" type="button" onclick="myScore()">Check Score</button>
+ 		  	  		<div id="box7"><img src="images/flybee.gif" id="bee"></div>;
+					</p>
+					
+ 		  	  	<script>
+										
+					function myScore() {  
+						var score = 0;
+						var ChildBoxA = document.getElementById("boxA");
+						console.log(ChildBoxA);
+						var Ans1 = ChildBoxA.parentNode.id;
+						console.log("Ans1: " + Ans1);
+						if(Ans1=="box4")
+							score = score + 20;
+							console.log("score: " + score);
+						var ChildBoxB = document.getElementById("boxB");
+						console.log(ChildBoxB);
+						var Ans2 = ChildBoxB.parentNode.id;
+						console.log("Ans2: " + Ans2);
+						if(Ans2=="box5")
+							score = score + 20;
+							console.log("score: " + score);
+						var ChildBoxC = document.getElementById("boxC");
+						console.log(ChildBoxC);
+						var Ans3 = ChildBoxC.parentNode.id;
+						console.log("Ans3: " + Ans3);
+						if (Ans3=="box2") 
+							score = score + 20;
+							console.log("score: " + score);
+						var ChildBoxD = document.getElementById("boxD");
+						console.log(ChildBoxD);
+						var Ans4 = ChildBoxD.parentNode.id;
+						console.log("Ans4: " + Ans4);
+						if (Ans4=="box3") 
+							score = score + 20;	
+							console.log("score: " + score);
+						var ChildBoxE = document.getElementById("boxE");
+						console.log(ChildBoxE);
+						var Ans5 = ChildBoxE.parentNode.id;
+						console.log("Ans5: " + Ans5);
+						if (Ans5=="box1") 
+							score = score + 20;
+							console.log("score: " + score);
+													
+						document.getElementById("btn1").textContent = score + " points";
+						
+						if (score == 100){
+							document.getElementById("btn1").textContent = "100% Good Job!";
+							document.getElementById("box7").style.visibility = "visible";
+							setTimeout(function(){location.reload()},7000);
+						}
+							
+						if (score < 100)
+							
+							document.getElementById("box7").style.visibility = "hidden";
+							console.log(score);
+						
+						}
+						</script>
+						<!--//var Ans1 = CheckBox1.innerHTML.contains("boxE");
+						//var NewID = CheckID.getElementsByTagName("mover");
+						//console.log(NewID);
+						//var OtherID = document.getElementById("boxE");
+						//console.log(OtherID);
+						//var Length = getNewID.length();
+						//console.log(Length);
+						//var FinalID = NewID.id("boxE");
+						//console.log(FinalID);
+						
+						//var div = document.getElementById("div1");
+						//var myimg = div.getElementsByTagName('img')[0];
+						//var imgGrass = myimg.src;
+						
+						//if (box5.mover.id=="boxE")
+						//	console.log("20 points!");
+						//else
+						//	console.log("Try again!");
+						-->
+				  		 		  	  		
+ 		   	</body> 
+ 		  	</html>
