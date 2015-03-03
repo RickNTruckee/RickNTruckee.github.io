@@ -32,7 +32,7 @@
  		  	 } 
  		  	 #box7{
  		  	 	width: 250px; height: 300px; border-width: 10px dotted #333333; float: right;
- 		  	 	margin-right: 150px; margin-bottom: 400px; margin-top: 1px; padding-top: 1px; 
+ 		  	 	margin-right: 150px; margin-bottom: 400px; margin-top: 1px; padding-top: 1px; visibility: "visible"
  		  		
  		  	 }
  		 </style>
@@ -73,7 +73,7 @@
  		  	  		<p>
  		  	  			
  		  	  		<button id="btn1" type="button" onclick="myScore()">Check Score</button>
- 		  	  		<div id="box7"><img src="rickntruckee.github.io/sun.jpg" id="bee"></div>;
+ 		  	  		<div id="box7"><img src="http://rickntruckee.github.io/rickntruckee.github.io/sun.jpg" id="bee"></div>;
 					</p>
 					
  		  	  	<script>
@@ -126,7 +126,7 @@
 							
 						if (score < 100)
 							
-							document.getElementById("box7").style.visibility = "hidden";
+							document.getElementById("box7").style.visibility = "visible";
 							console.log(score);
 						
 						}
